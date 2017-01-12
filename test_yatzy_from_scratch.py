@@ -111,7 +111,10 @@ def test_small_straight():
     "1,2,3,4,5" the player scores 15 (the sum of all the dice).
     -   1,2,3,4,5 scores 15 (1+2+3+4+5)
     ''' 
-    assert 15 == Yatzy.smallStraight(1,2,3,4,5)
+    assert 15 == Yatzy.small_straight(1,2,3,4,5)
+    assert 15 == Yatzy.small_straight(5,4,3,2,1)
+    assert 15 == Yatzy.small_straight(2,1,5,4,3)
+    assert 0 == Yatzy.small_straight(4,2,3,4,5)
 
 @pytest.fixture
 def inyector():

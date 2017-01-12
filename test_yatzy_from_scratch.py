@@ -105,6 +105,14 @@ def test_four_of_a_kind():
     assert 0 == Yatzy.four_of_a_kind(1,1,2,3,4)
     assert 8 == Yatzy.four_of_a_kind(2,2,2,2,2)
 
+def test_small_straight():
+    '''
+    When placed on "small straight", if the dice read
+    "1,2,3,4,5" the player scores 15 (the sum of all the dice).
+    -   1,2,3,4,5 scores 15 (1+2+3+4+5)
+    ''' 
+    assert 15 == Yatzy.smallStraight(1,2,3,4,5)
+
 @pytest.fixture
 def inyector():
     # Es el setup de unittest o de JUnit

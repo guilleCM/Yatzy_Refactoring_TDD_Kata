@@ -116,6 +116,18 @@ def test_small_straight():
     assert 15 == Yatzy.small_straight(2,1,5,4,3)
     assert 0 == Yatzy.small_straight(4,2,3,4,5)
 
+def test_large_straight():
+    '''
+    When placed on "large straight", if the dice read 2,3,4,5,6, 
+    the player scores 20 (the sum of all the dice).
+    -   2,3,4,5,6 scores 20 (2+3+4+5+6)
+    '''
+    assert 20 == Yatzy.large_straight(2,3,4,5,6)
+    assert 20 == Yatzy.large_straight(6,5,4,3,2)
+    assert 20 == Yatzy.large_straight(2,3,5,6,4)
+    assert 0 == Yatzy.large_straight(3,3,4,5,6)
+
+
 @pytest.fixture
 def inyector():
     # Es el setup de unittest o de JUnit

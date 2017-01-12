@@ -49,6 +49,35 @@ def test_threes():
     '''
     assert 9 == Yatzy.threes(2,2,3,3,3)
 
+def test_score_pair():
+    '''
+    ### Pair: 
+    The player scores the sum of the two highest matching dice.
+    For example, when placed on "pair":
+    -   3,3,3,4,4 scores 8 (4+4)
+    -   1,1,6,2,6 scores 12 (6+6)
+    -   3,3,3,4,1 scores 6 (3+3)
+    -   3,3,3,3,1 scores 6 (3+3)
+    '''
+    assert 8 == Yatzy.score_pair(3,3,3,4,4)
+    assert 12 == Yatzy.score_pair(1,1,6,2,6)
+    assert 6 == Yatzy.score_pair(3,3,3,4,1)
+    assert 6 == Yatzy.score_pair(3,3,3,3,1)
+
+def test_two_pair():
+    '''
+    ### Two pairs: 
+    If there are two pairs of dice with the same number, the
+    player scores the sum of these dice. 
+    For example, when placed on "two pairs":
+      
+    -   1,1,2,3,3 scores 8 (1+1+3+3)
+    -   1,1,2,3,4 scores 0
+    -   1,1,2,2,2 scores 6 (1+1+2+2)
+    '''
+    assert 8 == Yatzy.two_pair(1,1,2,3,3)
+    assert 0 == Yatzy.two_pair(1,1,2,3,4)
+    assert 6 == Yatzy.two_pair(1,1,2,2,2)
 
 @pytest.fixture
 def inyector():

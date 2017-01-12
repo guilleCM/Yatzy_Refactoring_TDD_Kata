@@ -127,6 +127,19 @@ def test_large_straight():
     assert 20 == Yatzy.large_straight(2,3,5,6,4)
     assert 0 == Yatzy.large_straight(3,3,4,5,6)
 
+def test_full_house():
+    '''
+    If the dice are two of a kind and three of a kind, the
+    player scores the sum of all the dice. 
+    For example, when placed on "full house":
+    -    1,1,2,2,2 scores 8 (1+1+2+2+2) 
+    -    2,2,3,3,4 scores 0
+    -    4,4,4,4,4 scores 0
+    '''
+    assert 8 == Yatzy.full_house(1,1,2,2,2)
+    assert 0 == Yatzy.full_house(2,2,3,3,4)
+    assert 0 == Yatzy.full_house(4,4,4,4,4)
+    assert 11 == Yatzy.full_house(3,3,1,1,3)
 
 @pytest.fixture
 def inyector():

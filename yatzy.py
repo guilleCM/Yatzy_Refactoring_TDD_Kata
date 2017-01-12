@@ -2,65 +2,42 @@ class Yatzy:
 
     @staticmethod
     def chance(*dice):
-        total = 0
+        score = 0
         for die in dice:
-            total+=die
-        return total
+            score+=die
+        return score
 
     @staticmethod
     def yatzyScore(*dice):
-        dieToCompare=dice[0]
         for die in dice:
-            if die != dieToCompare:
+            if die != dice[0]:
                 return 0
         return 50
     
     @staticmethod
-    def ones( d1,  d2,  d3,  d4,  d5):
-        sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1): 
-            sum += 1
-
-        return sum
+    def ones(*dice):
+        score = 0
+        for die in dice:
+            if die==1:
+                score+=die
+        return score
     
 
     @staticmethod
-    def twos( d1,  d2,  d3,  d4,  d5):
-        sum = 0
-        if (d1 == 2):
-             sum += 2
-        if (d2 == 2):
-             sum += 2
-        if (d3 == 2):
-             sum += 2
-        if (d4 == 2):
-             sum += 2
-        if (d5 == 2):
-             sum += 2
-        return sum
+    def twos(*dice):
+        score = 0
+        for die in dice:
+            if die==2:
+                score+=die
+        return score
     
     @staticmethod
-    def threes( d1,  d2,  d3,  d4,  d5):
-        s = 0
-        if (d1 == 3):
-             s += 3
-        if (d2 == 3):
-             s += 3
-        if (d3 == 3):
-             s += 3
-        if (d4 == 3):
-             s += 3
-        if (d5 == 3):
-             s += 3
-        return s
+    def threes(*dice):
+        score = 0
+        for die in dice:
+            if die==3:
+                score+=die
+        return score
     
 
     def __init__(self, d1, d2, d3, d4, _5):
@@ -72,28 +49,25 @@ class Yatzy:
         self.dice[4] = _5
     
     def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4): 
-                sum += 4
-        return sum
+        score = 0
+        for die in self.dice:
+            if die==4:
+                score+=die
+        return score
     
-
     def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)): 
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
-    
+        score = 0
+        for die in self.dice:
+            if die==5:
+                score+=die
+        return score
 
-    def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)): 
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
+    def sixs(self):
+        score = 0
+        for die in self.dice:
+            if die==6:
+                score+=die
+        return score
     
     @staticmethod
     def score_pair( d1,  d2,  d3,  d4,  d5):

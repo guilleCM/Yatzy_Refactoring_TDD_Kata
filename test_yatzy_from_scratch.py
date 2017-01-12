@@ -22,6 +22,33 @@ def test_yatzyScore():
     assert 50 == Yatzy.yatzyScore(1,1,1,1,1)
     assert 0 == Yatzy.yatzyScore(1,1,1,2,1)
 
+def test_ones():
+    '''
+    # Ones: 
+    The player scores the sum of the dice that reads one.
+    For Example:
+    -   1,1,1,4,4 placed on "ones" scores 3 (1+1+1)
+    '''
+    assert 3 == Yatzy.ones(1,1,1,4,4)
+
+def test_twos():
+    '''
+    # Twos: 
+    The player scores the sum of the dice that reads two.
+    For Example:
+    -   2,2,2,4,4 placed on "twos" scores 6 (2+2+2)
+    '''
+    assert 6 == Yatzy.twos(2,2,2,4,4)
+
+def test_threes():
+    '''
+    # Three: 
+    The player scores the sum of the dice that reads three.
+    For Example:
+    -   2,2,3,3,3 placed on "threes" scores 9 (3+3+3)
+    '''
+    assert 9 == Yatzy.threes(2,2,3,3,3)
+
 
 @pytest.fixture
 def inyector():
@@ -32,7 +59,24 @@ def inyector():
 
 def test_fours(inyector):
     # Es necesario un objeto ya creado
-    valorEsperado = 4
     # No puedo testear con fixtures = inyeccion de dependencias
     # los metodos estaticos como chance()
-    assert valorEsperado == inyector.fours()
+    assert 4 == inyector.fours()
+
+def test_fives(inyector):
+    '''
+    # Fives: 
+    The player scores the sum of the dice that reads five.
+    For Example:
+    -   1,2,3,4,5 placed on "fives" scores 5 (5)
+    '''
+    assert 5 == inyector.fives()
+
+def test_sixs(inyector):
+    '''
+    # Sixs: 
+    The player scores the sum of the dice that reads six.
+    For Example:
+    -   1,2,3,4,5 placed on "sixs" scores 0 (0)
+    '''
+    assert 0 == inyector.sixs()

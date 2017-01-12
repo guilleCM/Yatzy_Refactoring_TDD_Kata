@@ -79,6 +79,32 @@ def test_two_pair():
     assert 0 == Yatzy.two_pair(1,1,2,3,4)
     assert 6 == Yatzy.two_pair(1,1,2,2,2)
 
+def test_three_of_a_kind():
+    '''
+    If there are three dice with the same number, the player
+    scores the sum of these dice. 
+    For example, when placed on "three of a kind": 
+    -    3,3,3,4,5 scores 9 (3+3+3)
+    -    3,3,4,5,6 scores 0
+    -    3,3,3,3,1 scores 9 (3+3+3)
+    '''
+    assert 9 == Yatzy.three_of_a_kind(3,3,3,4,5)
+    assert 0 == Yatzy.three_of_a_kind(3,3,4,5,6)
+    assert 9 == Yatzy.three_of_a_kind(3,3,3,3,1)
+
+def test_four_of_a_kind():
+    '''
+    If there are four dice with the same number, the player
+    scores the sum of these dice. 
+    For example, when placed on "four of a kind":
+    -    2,2,2,2,5 scores 8 (2+2+2+2)
+    -    2,2,2,5,5 scores 0
+    -    2,2,2,2,2 scores 8 (2+2+2+2)
+    '''
+    assert 8 == Yatzy.four_of_a_kind(2,2,2,2,5)
+    assert 0 == Yatzy.four_of_a_kind(1,1,2,3,4)
+    assert 8 == Yatzy.four_of_a_kind(2,2,2,2,2)
+
 @pytest.fixture
 def inyector():
     # Es el setup de unittest o de JUnit

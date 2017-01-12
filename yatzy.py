@@ -13,7 +13,6 @@ class Yatzy:
         for die in dice:
             if die != dieToCompare:
                 return 0
-            dieToCompare=die
         return 50
     
     @staticmethod
